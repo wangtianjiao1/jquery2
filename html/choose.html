@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+    
+   <script src="../js/jquery-1.7.1.min.js"></script>
+   <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page" data-theme="b" id="second" data-add-back="true">
+		<div data-role="header">
+			<a href="../index.html" data-icon="arrow-l" data-iconpos="left" data-ajax="false">Back</a>
+			<h1>房间列表</h1>
+		</div>
+		<div data-role="content">
+			选择楼层：
+			<select >
+				<option value="一楼">一楼</option>
+				<option value="二楼">二楼</option>
+				<option value="三楼">三楼</option>
+			</select>
+			<fieldset data-role="controlgroup">
+				<legend>选择是否带窗口：</legend>
+				<input type="radio" name="flavoritem" id="radio-choice-1" value="有窗口" checked>
+				<label for="radio-choice-1">有窗口</label>
+				<input type="radio" name="flavoritem" id="radio-choice-2" value="无窗口" checked>
+				<label for="radio-choice-2">无窗口</label>
+			</fieldset>
+			<fieldset data-role="controlgroup">
+				<legend>选择是否接送：</legend>
+				<input type="radio" name="flavoritem1"  id="radio-choice-3" value="需要接送" checked>
+				<label for="radio-choice-3">需要接送</label>
+				<input type="radio" name="flavoritem1"  id="radio-choice-4" value="不需要接送" checked>
+				<label for="radio-choice-4">不需要接收</label>
+			</fieldset>
+       
+			订购数量：<input type="range" name="num" value="1" min="0" max="100" data-highlight="true" data-theme="a">
+			客户联系方式：
+			<input type="text" size="10" maxlength="10" name="text1">
+			<input type="button" value="确认订单" id="addTostorage" data-ajax="true">
+		</div>
+		<div data-role="footer" data-position="fixed" style="text-align: center;padding:20px ">订购热线：8888</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	var orderitem,flower,jsong,num,text1;
+
+	  $('#second').live('pagecreate',function(){
+         $('#addTostorage').click(function(){
+        	localStorage.orderitem=$('select').val();
+        	localStorage.flower=$("input[name='flavoritem']:checked").val();
+        	localStorage.jsong=$("input[name='flavoritem1']:checked").val();
+        	localStorage.num=$("input[name='num']").val();
+        	localStorage.text1=$("input[name='text1']").val();
+            window.location.href="showorder.html"
+            // 涉及Ajax跨域问题
+        	// $.mobile.changePage('showorder.html','slide');
+        	
+        })
+	  });
+	 
+
+     
+ 
+</script>

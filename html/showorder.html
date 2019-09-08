@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
+	<title>订单完成</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+    
+    
+   <script src="../js/jquery-1.7.1.min.js"></script>
+   <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="third" data-theme="a">
+		<div data-role="header">
+			<a href="../index.html" data-icon="arrow-l" data-iconpos="left" data-ajax="false">回首页</a>
+		     <h1>订单完成</h1>
+		</div>
+		<div data-role="content">
+			<img src="../images/ding.png"><br>
+			<h3>订购信息如下：</h3>
+			<p>
+			 <div id="message" style="color:green;margin:20px;text-align:center;display: block;padding:20px;"></div>
+			</p>
+		</div>
+		 <div data-role="footer" data-position="fixed" style="text-align: center;padding:20px ">订购热线：8888</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	
+     // 在页面初始化后及jQueryMobile已完成对页面内容的增强
+	$("#third").live('pageinit',function(event){
+		 event.preventDefault();
+		var itemflaver="房间楼层："+localStorage.orderitem;
+		var itemwindow="是否带窗户:"+localStorage.flower;
+		var itemsong="是否需要接送:"+localStorage.jsong;
+		var itemnum="放假总数"+localStorage.num;
+		var clientmessage="客户联系方式"+localStorage.text1;
+		document.getElementById('message').innerHTML=itemflaver+'<br>'+itemwindow+'<br>'+itemsong+'<br>'+itemnum+'<br>'+clientmessage;
+		
+	})
+
+</script>

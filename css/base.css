@@ -1,0 +1,25 @@
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+}
+input{
+	border:none;
+	outline: none;
+}
+li{
+	list-style: none;
+}
+.w{
+	width:1200;
+	margin:auto;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
